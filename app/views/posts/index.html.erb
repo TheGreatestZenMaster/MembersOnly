@@ -1,0 +1,16 @@
+<h1>Post Index</h1>
+
+<% @posts.each do |posts| %>
+    <p>
+    Title: <%= posts.title %><br>
+    Body: <%= posts.body %><br>
+    <% unless @current_user.nil? %>
+        Posted by user <%= posts.user_id %><br>
+    <% end %>
+    </p>
+<% end %>
+
+<%= link_to "Log in", login_path %>
+<% unless @current_user.nil? %>
+    <%= link_to 'New post', new_post_path %>
+<% end %>
